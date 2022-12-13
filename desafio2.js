@@ -1,22 +1,23 @@
-//----------SOTCK DE PRODUCTOS----------//
+p//----------SOTCK DE PRODUCTOS----------//
 
-class producto {
-    constructor(id, nombre, precio, img, desc = ' ') {
-        this.id = id
-        this.nombre = nombre
-        this.precio = precio
-        this.img = img
-        this.desc = desc
-    }
-}
+let stockProductos = [
+    {id: 1, nombre: "Camiseta con onda", cantidad: 1, desc: "Ilustraciones personalizadas, pintadas a mano", precio: 1000, img: './assets/camiseta01.jpg'},
+    {id: 2, nombre: "Gorro canchero", cantidad: 1, desc: "Protejete del sol sin perder la facha", precio: 500, img: './assets/gorro02.jpg'},
+    {id: 3, nombre: "Taza del ammor", cantidad: 1, desc: "Para el tesito o el cafecito", precio: 250, img: './assets/taza03.jpg'},
+    {id: 4, nombre: "Llaverito quitapenas", cantidad: 1, desc: "Llevalo siempre con vos", precio: 150, img: './assets/llavero04.jpg'},
+]
+const contenedorProductos = document.getElementById('contenedor-productos')
 
-let camiseta1 = new producto('01', 'Camiseta estampada', 700, './assets/camiseta01.jpg')
-let gorro1 = new producto('02', 'Gorro con onda', 300, './assets/gorro02.jpg')
-let taza1 = new producto('03', 'Taza a rayas', 200, './assets/taza03.jpg')
-let llavero1 = new producto('04', 'Llavero fantasma', 100, './assets/llavero04.jpg')
+stockProductos.forEach((producto) => { 
+    const div = document.createElement('div')
+    div.classList.add('producto')
+    div.innerHTML = `
+    <img src=${producto.img} alt="">
+    <h3>${producto.nombre}</h3>
+    <p>${producto.desc}</p>
+    <p class="precioProducto>Precio: $ ${producto.precio}</p>
+    <button id="agregar${prducto.id}" class="boton-agregar">Agregar<i class="fas fa-shopping-cart></i></button>
+    `
 
-
-articulos.push(camiseta1, gorro1, taza1, llavero1)
-
-console.log(articulos)
-
+    contenedorProductos.appendChild(div)
+})
